@@ -7,9 +7,9 @@ class Orders extends Model {
     static get tableName() {
         return 'order_details'
     }
-    $beforeInsert() {
-        this.order_date = new Date().toISOString()
-    }
+    // $beforeInsert() {
+    //     this.order_date = new Date().toISOString()
+    // }
 
     $beforeUpdate() {
         this.ship_date = new Date().toISOString()

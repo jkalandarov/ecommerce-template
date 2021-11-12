@@ -64,6 +64,4 @@ exports.register = async(req, res) =>{
         console.error(err)
     }
     
-
-    
 }

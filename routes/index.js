@@ -14,11 +14,9 @@ const SliderC = require('../controllers/SliderC')
 const SearchC = require('../controllers/SearchC')
 const OrderC = require('../controllers/OrderC')
 
+//Authorization
 router.post('/user/login', AuthC.login)
 router.post('/user/register', AuthC.register)
-router.post('/orders/place', verify, OrderC.place)
-
-
 
 router.get('/home', HomeC.home)
 router.get('/catalog', CatalogC.items)
@@ -28,15 +26,18 @@ router.get('/news', NewsC.news)
 router.get('/slider', SliderC.slides)
 router.post('/search', SearchC.search)
 
+//Handling orders
+router.post('/orders/place', OrderC.place)
+
 
 /*====== Admin Panel ======*/
 //Products
-router.post('/catalog/add', upload.array('images', 10), CatalogC.create)
-router.put('/catalog/update', upload.array('images', 10), CatalogC.create)
+router.post('/catalog/add', verify, upload.array('images', 10), CatalogC.create)
+router.put('/catalog/update', verify, upload.array('images', 10), CatalogC.create)
 
 //News
-router.post('/news/add', upload.array('images', 10), NewsC.create)
-router.put('/news/update', upload.array('images', 10), NewsC.update)
+router.post('/news/add', verify, upload.array('images', 10), NewsC.create)
+router.put('/news/update', verify, upload.array('images', 10), NewsC.update)
 
 
 module.exports = router
