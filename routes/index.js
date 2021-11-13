@@ -28,6 +28,7 @@ router.post('/search', SearchC.search)
 
 //Handling orders
 router.post('/orders/place', OrderC.place)
+router.post('/orders/checkout', OrderC.checkout)
 
 
 /*====== Admin Panel ======*/
