@@ -1,12 +1,12 @@
 const express = require('express')
 const bcrypt = require('bcrypt')
-// const logger = require('morgan');
+const logger = require('morgan');
 require('dotenv').config()
 
 const routes = require('./routes/index')
 
 const app = express()
-// app.use(logger('dev'));
+app.use(logger('dev'));
 app.use(express.urlencoded({ extended: false }))
 app.use(express.json())
 
